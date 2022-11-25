@@ -1,16 +1,16 @@
 import './Comment.css'
 
-const Comment = () => {
+const Comment = (data) => {
     return (
         <div className='comment-container'>
             <div className='comment-username'>
-                Name
+                {data.username}
             </div>
             <div className='comment-time'>
-                time
+                {data.time}
             </div>
             <div className='comment-content'>
-                Content
+                {data.content}
             </div>
         </div>
     )

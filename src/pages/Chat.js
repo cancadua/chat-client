@@ -1,54 +1,29 @@
 import {useEffect, useState} from "react";
 import Post from "../components/Post";
 import './Chat.css'
-import Comment from "../components/Comment";
+import PostForm from "../components/PostForm";
+import {useLocation} from "react-router-dom";
+import {getAllPosts} from "../api/api";
 
 const Chat = () => {
+    const location = useLocation()
     const [posts, setPosts] = useState();
-    const date = new Date();
-    date.toDateString()
+    const {username} = location.state;
 
 
     useEffect(() => {
-        setPosts([{
-                _id: '1',
-                username: 'username',
-                content: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentccontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent',
-                time: '{date}',
-                edited: false
-            }, {
-                _id: '2',
-                username: 'username2',
-                content: 'content2',
-                time: '{date}',
-                edited: false
-            }
-        ])
+        getAllPosts()
+            .then(data => setPosts(data))
     }, [])
 
     return (
         <div className='chat-container'>
-            <div className='post-container'>
-                <div className='username'>
-                    username
-                </div>
-                <div className='time'>
-                </div>
-                <input className='content'>
-                </input>
-                <div className='manage-post'>
-                    <button className='edit-post'>
-                        Send
-                    </button>
-                    <button className='delete-post'>
-                        Abort
-                    </button>
-                </div>
-            </div>
-            {
-                posts?.map(post =>
-                <Post key={post._id} {...post}/>)
+
+            {posts?.map(post =>
+                <Post username={username} key={post._id} post={post}/>)
             }
+            <PostForm username={username}/>
+
         </div>
     )
 }

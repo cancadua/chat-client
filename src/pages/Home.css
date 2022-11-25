@@ -5,4 +5,15 @@
     align-content: center;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
+}
+
+.home-container h1 {
+    color: white;
+}
+
+.home-container .confirm-nickname {
+    width: 5rem;
+    height: 2rem;
+    cursor: pointer;
 }

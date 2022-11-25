@@ -3,7 +3,7 @@ import {Navbar} from "./components/Navbar";
 
 const App = () => {
     return (
-        <div>
+        <div style={{width: '100%'}}>
             <Navbar/>
             <Main/>
         </div>
