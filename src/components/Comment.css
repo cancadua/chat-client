@@ -1,8 +1,10 @@
 .comment-container {
     width: 60%;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 33% 33% 33%;
     border: black 2px solid;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 
 .comment-container .comment-username {
@@ -11,16 +13,37 @@
     grid-row: 1;
 }
 
-.comment-container .comment-content {
-    padding: 1rem;
-    word-break: break-all;
-    white-space: initial;
-    grid-column: 1 / 6;
-    grid-row: 2;
+.comment-container .comment-delete {
+    align-self: center;
+    justify-self: center;
+    background: #a00000;
+    color: white;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 1px solid #900000;
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    grid-column: 3;
+    grid-row: 1;
 }
 
 .comment-container .comment-time {
+    width: 100%;
     padding: 1rem;
-    grid-column: 5;
+    grid-column: 2;
     grid-row: 1;
+}
+
+.comment-container .comment-content {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    display: flex;
+    background: #252437;
+    color: white;
+    padding: 1.5rem;
+    word-break: break-all;
+    white-space: initial;
+    min-height: 3rem;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 0.8rem;
 }

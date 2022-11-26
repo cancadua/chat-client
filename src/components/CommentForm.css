@@ -1,0 +1,27 @@
+.comment-form-container {
+    align-items: center;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.comment-form-container .comment-input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+.comment-form-container .comment-button {
+    border-radius: unset;
+    border: 1px #a5a5a5 solid;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.comment-form-container .comment-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

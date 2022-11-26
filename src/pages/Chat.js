@@ -3,7 +3,7 @@ import Post from "../components/Post";
 import './Chat.css'
 import PostForm from "../components/PostForm";
 import {useLocation} from "react-router-dom";
-import {getAllPosts} from "../api/api";
+import {getAllPosts} from "../api";
 
 const Chat = () => {
     const location = useLocation()

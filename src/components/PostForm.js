@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './PostForm.css'
-import {postPost} from "../api/api";
+import {postPost} from "../api";
 
 const PostForm = ({open, username}) => {
     const [content, setContent] = useState()
@@ -24,7 +24,7 @@ const PostForm = ({open, username}) => {
     }
 
     return (
-        <div className='collapsible-container'>
+        <div className='collapsible-post-container'>
             <button className='expand-button' onClick={handleFilterOpening}>
                 {!isOpen ? (
                     'Add post'
@@ -37,8 +37,8 @@ const PostForm = ({open, username}) => {
                     <div className='username'>
                         {username}
                     </div>
-                    <input className='content-input' onChange={handleChange}>
-                    </input>
+                    <textarea className='content-textarea' onChange={handleChange}>
+                    </textarea>
                     <div className='manage-post'>
                         <button className='send-post' onClick={handleSendPost}>
                             Send

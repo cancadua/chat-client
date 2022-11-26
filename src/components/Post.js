@@ -1,9 +1,10 @@
 import './Post.css'
 import Comment from "./Comment";
 import {useEffect, useState} from "react";
-import {deletePost, putPost} from "../api/api";
+import {deletePost, getComments, putPost} from "../api";
+import CommentForm from "./CommentForm";
 
-const Post = ({post, username}) => {
+    const Post = ({post, username}) => {
     const [comments, setComments] = useState()
     const [disabled, setDisabled] = useState(true)
     const [content, setContent] = useState(post.content)
@@ -15,29 +16,17 @@ const Post = ({post, username}) => {
 
     const handleEdit = () => {
         if (disabled && username === post.username) setDisabled(false)
-        else putPost({post_id: post._id}, {username: username, content: content})
+        else if (username === post.username) putPost({post_id: post._id}, {username: username, content: content})
             .then(() => window.location.reload())
     }
 
     const handleDelete = () => {
-        console.log(post._id)
         if (username === post.username) deletePost({post_id: post._id}, {username: username})
             .then(() => window.location.reload())
     }
 
     useEffect(() => {
-        setComments([{
-            _id: '1',
-            username: 'username',
-            content: 'sda',
-            time: '{date}'
-        }, {
-            _id: '2',
-            username: 'username2',
-            content: 'content2',
-            time: '{date}'
-        }
-        ])
+        getComments(post._id).then(data => setComments(data))
     }, [])
 
     return (
@@ -47,29 +36,32 @@ const Post = ({post, username}) => {
             </div>
             {post.edited
                 ? <div className='time'>
-                    Edited: {post.time.replace('T', '\n').slice(0, -5)}
+                    Edited at {post.time.replace('T', ' ').slice(0, -5)}
                 </div>
                 : <div className='time'>
-                    Posted: {post.time.replace('T', '\n').slice(0, -5)}
+                    Posted at {post.time.replace('T', ' ').slice(0, -5)}
                 </div>
             }
-            <input onChange={handleChange} className='content' value={content} disabled={disabled}/>
+            <textarea onChange={handleChange} className='content' value={content} disabled={disabled}/>
             <div className='comments'>
                 {
                     comments?.map(comment =>
-                        <Comment key={comment._id} {...comment}/>
+                        <Comment username={username} key={comment._id} comment={comment} />
                     )
                 }
-                <Comment/>
+                <CommentForm username={username} post_id={post._id}/>
             </div>
-            <div className='manage-post'>
-                <button className='edit-post' onClick={handleEdit}>
-                    Edit
-                </button>
-                <button className='delete-post' onClick={handleDelete}>
-                    Delete
-                </button>
-            </div>
+            {username === post.username &&
+                <div className='manage-post'>
+                    <button className='edit-post' onClick={handleEdit}>
+                        Edit
+                    </button>
+                    <button className='delete-post' onClick={handleDelete}>
+                        Delete
+                    </button>
+                </div>
+            }
+
         </div>
     )
 }
