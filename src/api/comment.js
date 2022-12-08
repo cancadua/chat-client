@@ -11,17 +11,18 @@ const postComment = async ({post_id}, data) => (
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
     })
-        .then(res => res.json())
+        .then(res => {
+            console.log(data)
+            res.json()
+        })
         .then(data => data)
         .catch(e => console.log(e))
 )
 
 
-const deleteComment = async ({post_id}, {_id}, username) => (
+const deleteComment = async ({post_id}, {_id}) => (
     await fetch(`http://localhost:8080/api/posts/${post_id}/comment/${_id}`, {
         method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(username)
     })
         .then(response => response.json())
         .catch(e => console.log(e))

@@ -9,24 +9,22 @@
     border: black 2px solid;
 }
 
-.post-container .username {
+.post-container .title {
+    font-weight: bold;
     padding: 1rem;
     grid-column: 1;
     grid-row: 1;
 }
 
 .post-container .content {
-    outline: none;
-    background: #222222;
     color: white;
-    border: 2px black solid;
     padding: 2rem;
     word-break: break-all;
     white-space: initial;
     min-height: 3rem;
     grid-column: 1 / 5;
     grid-row: 2;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 2rem 0 2rem;
 }
 
 .post-container .content:focus {
@@ -38,7 +36,7 @@
 
 .post-container .content:disabled {
     background: #252437;
-    border:none;
+    border: none;
 }
 
 .post-container .time {
@@ -59,6 +57,9 @@
 }
 
 .post-container .manage-post {
+    display: flex;
+    flex-direction: row;
+    aspect-ratio: 2 / 1;
     grid-row: 1 / 5;
     grid-column: 5;
     border: none;
@@ -66,23 +67,30 @@
 }
 
 .post-container .manage-post .edit-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     font-weight: bold;
     color: white;
     border: solid 2px #114505;
     background: #006505;
     width: 50%;
     cursor: pointer;
-    aspect-ratio : 1 / 1;
+    aspect-ratio: 1 / 1;
     border-radius: 0 0 0 2rem;
 }
 
 .post-container .manage-post .delete-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     color: white;
     cursor: pointer;
     border: solid 2px #900000;
     background: #a00000;
     width: 50%;
-    aspect-ratio : 1 / 1;
+    aspect-ratio: 1 / 1;
 }
 

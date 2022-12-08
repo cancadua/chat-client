@@ -7,17 +7,25 @@
     overflow: hidden;
 }
 
-.comment-container .comment-username {
+.comment-container .comment-title {
+    font-weight: bold;
     padding: 1rem;
     grid-column: 1;
     grid-row: 1;
 }
 
 .comment-container .comment-delete {
+    cursor: pointer;
+    display: flex;
     align-self: center;
     justify-self: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
     background: #a00000;
     color: white;
+    font-size: 0.8rem;
     font-weight: bold;
     border-radius: 1rem;
     border: 1px solid #900000;
@@ -28,6 +36,7 @@
 }
 
 .comment-container .comment-time {
+    font-size: 0.8rem;
     width: 100%;
     padding: 1rem;
     grid-column: 2;

@@ -1,24 +1,28 @@
 import './Comment.css'
 import {deleteComment} from "../api";
 
-const Comment = ({comment, username}) => {
+const Comment = ({comment}) => {
+
     const handleDelete = () => {
-        deleteComment({post_id: comment.post_id}, {_id: comment._id}, {username: username})
+        deleteComment({post_id: comment.post_id}, {_id: comment._id})
             .then(() => window.location.reload())
     }
+
     return (
         <div className='comment-container'>
-            <div className='comment-username'>
-                {comment.username}
+
+            <div className='comment-title'>
+                {comment.title}
             </div>
-            {username === comment.username &&
-                <button className='comment-delete' onClick={handleDelete}>
-                    Delete
-                </button>
-            }
-            <div className='comment-time'>
-                Posted at {'\n'}{comment.time.replace('T', ' ').slice(0, -5)}
+
+           <a className='comment-delete' onClick={handleDelete}>
+                Delete
+            </a>
+
+           <div className='comment-time'>
+                Updated at {comment.time.replace('T', ' ').slice(0, -5)}...
             </div>
+
             <div className='comment-content'>
                 {comment.content}
             </div>

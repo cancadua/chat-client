@@ -38,3 +38,7 @@ textarea {
     color: white;
     border: 2px black solid;
 }
+
+* {
+    font-family: "Calibri Light", serif;
+}

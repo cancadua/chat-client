@@ -61,7 +61,7 @@
     color: white;
     font-weight: bold;
     width: 50%;
-    aspect-ratio : 1 / 1;
+    aspect-ratio: 1 / 1;
     border-radius: 0 0 0 2rem;
     cursor: pointer;
 
@@ -73,7 +73,7 @@
     border: solid 2px #900000;
     background: #a00000;
     width: 50%;
-    aspect-ratio : 1 / 1;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
 }
 

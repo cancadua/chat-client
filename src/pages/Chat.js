@@ -1,14 +1,11 @@
 import {useEffect, useState} from "react";
-import Post from "../components/Post";
+import {Post, PostForm} from "../components/";
 import './Chat.css'
-import PostForm from "../components/PostForm";
-import {useLocation} from "react-router-dom";
 import {getAllPosts} from "../api";
+import {Link} from "react-router-dom";
 
 const Chat = () => {
-    const location = useLocation()
     const [posts, setPosts] = useState();
-    const {username} = location.state;
 
 
     useEffect(() => {
@@ -20,9 +17,12 @@ const Chat = () => {
         <div className='chat-container'>
 
             {posts?.map(post =>
-                <Post username={username} key={post._id} post={post}/>)
+                <Post key={post._id} post={post}/>)
             }
-            <PostForm username={username}/>
+
+            <Link to='/posts/new' className='new-post'>
+                    New post
+            </Link>
 
         </div>
     )

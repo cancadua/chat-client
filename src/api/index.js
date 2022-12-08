@@ -1,6 +1,6 @@
-import {getComments, postComment, deleteComment} from './comment'
-import {getAllPosts, postPost, putPost, deletePost} from './post'
+import {deleteComment, getComments, postComment} from './comment'
+import {deletePost, getAllPosts, getPost, postPost, putPost} from './post'
 
 export {
-    getComments, postComment, deleteComment, getAllPosts, postPost, putPost, deletePost
+    getComments, postComment, deleteComment, getAllPosts, getPost, postPost, putPost, deletePost
 }
