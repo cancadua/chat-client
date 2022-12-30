@@ -13,20 +13,6 @@
     width: 100%;
 }
 
-.comment-form-container .comment-button {
-    border-radius: unset;
-    border: 1px #a5a5a5 solid;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-}
-
-.comment-form-container .comment-form {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
 .comment-form-container .send-comment {
     font-size: 0.8rem;
     padding: 0.2rem;

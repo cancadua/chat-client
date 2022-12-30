@@ -1,5 +1,5 @@
-import Main from "./Main";
-import {Navbar} from "./components/";
+import Main from "./Main"
+import {Navbar} from "./components/"
 
 const App = () => {
     return (
@@ -10,4 +10,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default App

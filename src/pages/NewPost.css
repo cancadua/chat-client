@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-.new-post {
+.back-to-posts {
     padding: 0.5rem;
     color: black;
     display: flex;

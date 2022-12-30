@@ -1,6 +1,5 @@
 import './Home.css'
-import {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
 const Home = () => {
     return (
@@ -11,7 +10,6 @@ const Home = () => {
                     Confirm
                 </a>
             </Link>
-
         </div>
     )
 }

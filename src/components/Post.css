@@ -27,18 +27,6 @@
     border-radius: 0 2rem 0 2rem;
 }
 
-.post-container .content:focus {
-    outline: none;
-    background: #222222;
-    color: white;
-    border: 2px black solid;
-}
-
-.post-container .content:disabled {
-    background: #252437;
-    border: none;
-}
-
 .post-container .time {
     padding: 1rem;
     grid-column: 4;

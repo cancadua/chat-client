@@ -1,9 +1,9 @@
-import React from 'react';
-import {Route, Routes} from 'react-router-dom';
-import Home from "./pages/Home";
+import React from 'react'
+import {Route, Routes} from 'react-router-dom'
+import Home from "./pages/Home"
 import './Main.css'
-import Chat from "./pages/Chat";
-import NewPost from "./pages/NewPost";
+import Chat from "./pages/Chat"
+import NewPost from "./pages/NewPost"
 
 const Main = () => {
     return (
@@ -16,4 +16,4 @@ const Main = () => {
     );
 }
 
-export default Main;
+export default Main

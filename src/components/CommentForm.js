@@ -1,45 +1,47 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react"
 import './CommentForm.css'
-import {postComment} from "../api";
+import {postComment} from "../api"
 
-const CommentForm = ({post_id}) => {
-    const [comment, setComment] = useState({
+const CommentForm = ({post_id, reload}) => {
+    const initialState = {
         title: '',
         content: ''
-    })
+    }
+
+    const [comment, setComment] = useState(initialState)
 
     const handleSendComment = () => {
         postComment({post_id: post_id}, {title: comment.title, content: comment.content})
-            .then(() => window.location.reload())
+            .then(() => {
+                setComment(initialState)
+                reload()
+            })
     }
 
     const handleChange = event => {
-        const {name, value} = event.target;
-        setComment({...comment, [name]: value});
-    };
+        const {name, value} = event.target
+        setComment({...comment, [name]: value})
+    }
 
     return (
-        <div className='comment-form-container'>
+        <form className='comment-form-container'>
             <h3>
                 Add your comment!
             </h3>
-                <input className='comment-input'
-                       name='title'
-                       onChange={handleChange}
-                       value={comment?.title || ''}
-                       placeholder='Title'/>
+            <input className='comment-input'
+                   name='title'
+                   onChange={handleChange}
+                   placeholder='Title'/>
 
-                <input className='comment-input'
-                       name='content'
-                       onChange={handleChange}
-                       value={comment?.content || ''}
-                       placeholder='Content'/>
-                <a className='send-comment' onClick={handleSendComment}>
-                    Create Comment
-                </a>
+            <input className='comment-input'
+                   name='content'
+                   onChange={handleChange}
+                   placeholder='Content'/>
+            <a className='send-comment' type="reset" onClick={handleSendComment}>
+                Create Comment
+            </a>
+        </form>
+    )
+}
 
-        </div>
-    );
-};
-
-export default CommentForm;
+export default CommentForm
