@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom"
 const Post = ({post, reload}) => {
     const navigation = useNavigate()
     const [comments, setComments] = useState()
+    const [reloadComments, setReloadComments] = useState(false)
 
 
     const handleEdit = () => {
@@ -19,8 +20,10 @@ const Post = ({post, reload}) => {
     }
 
     useEffect(() => {
-        getComments(post._id).then(data => setComments(data))
-    })
+        getComments(post._id)
+            .then(data => setComments(data))
+        setReloadComments(false)
+    }, [reloadComments])
 
     return (
         <div className='post-container'>
@@ -38,10 +41,10 @@ const Post = ({post, reload}) => {
             <div className='comments'>
                 {
                     comments?.map(comment =>
-                        <Comment key={comment._id} comment={comment} reload={() => reload()}/>
+                        <Comment key={comment._id} comment={comment} reloadComments={() => setReloadComments(true)}/>
                     )
                 }
-                <CommentForm post_id={post._id} reload={() => reload()}/>
+                <CommentForm post_id={post._id} reloadComments={() => setReloadComments(true)}/>
             </div>
             <div className='manage-post'>
                 <a className='edit-post' onClick={handleEdit}>

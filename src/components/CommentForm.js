@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import './CommentForm.css'
 import {postComment} from "../api"
 
-const CommentForm = ({post_id, reload}) => {
+const CommentForm = ({post_id, reloadComments}) => {
     const initialState = {
         title: '',
         content: ''
@@ -14,7 +14,8 @@ const CommentForm = ({post_id, reload}) => {
         postComment({post_id: post_id}, {title: comment.title, content: comment.content})
             .then(() => {
                 setComment(initialState)
-                reload()
+                reloadComments()
+
             })
     }
 

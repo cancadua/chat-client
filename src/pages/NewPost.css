@@ -29,6 +29,7 @@
 }
 
 .form-post-container .post-form .content-textarea {
+    display: flex;
     word-break: break-all;
     white-space: initial;
     min-height: 3rem;
@@ -36,7 +37,6 @@
     grid-row: 2;
     border: black solid 0.2rem;
     border-radius: 0 2rem 0 2rem;
-    text-align: center;
     padding: 0.5rem;
 }
 

@@ -1,11 +1,11 @@
 import './Comment.css'
 import {deleteComment} from "../api"
 
-const Comment = ({comment, reload}) => {
+const Comment = ({comment, reloadComments}) => {
 
     const handleDelete = () => {
         deleteComment({post_id: comment.post_id}, {_id: comment._id})
-            .then(() => reload())
+            .then(() => reloadComments())
     }
 
     return (

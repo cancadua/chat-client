@@ -5,10 +5,8 @@ const Home = () => {
     return (
         <div className='home-container'>
             <h1>Go to chat</h1>
-            <Link to='/posts'>
-                <a className='confirm'>
+            <Link to='/posts' className='confirm'>
                     Confirm
-                </a>
             </Link>
         </div>
     )

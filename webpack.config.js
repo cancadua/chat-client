@@ -7,8 +7,12 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-    mode: "development",
-    output: {publicPath: '/'},
+    mode: "production",
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index_bundle.js',
+        publicPath: '/'
+    },
     module: {
         rules: [{
             test: /\.js$/,
@@ -21,12 +25,11 @@ module.exports = {
             use: ["style-loader", "css-loader"]
         }]
     },
+    performance: { hints: false },
     devServer: {
-        port: process.env.PORT || 3001,
         historyApiFallback: true,
-        open: true,
+        port: process.env.PORT || 3001,
         hot: true,
-        compress: true,
         static: {
             directory: path.join(__dirname, 'public'),
             watch: {

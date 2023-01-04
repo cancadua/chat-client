@@ -41,7 +41,7 @@ const NewPost = () => {
                            onChange={handleChange}
                            value={post?.title || ''}
                            placeholder='Title'/>
-                    <input className='content-textarea'
+                    <textarea className='content-textarea'
                            name='content'
                            onChange={handleChange}
                            value={post?.content || ''}

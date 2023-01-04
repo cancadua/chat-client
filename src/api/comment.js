@@ -4,7 +4,7 @@ const getComments = async (post_id) => (
 )
 
 const postComment = async ({post_id}, data) => (
-    await fetch(`http://localhost:8080/api/posts/${post_id}/comment`, {
+    await fetch(`http://localhost:8080/api/posts/${post_id}/comments`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -14,7 +14,7 @@ const postComment = async ({post_id}, data) => (
 
 
 const deleteComment = async ({post_id}, {_id}) => (
-    await fetch(`http://localhost:8080/api/posts/${post_id}/comment/${_id}`, {
+    await fetch(`http://localhost:8080/api/posts/comments/${_id}`, {
         method: 'DELETE',
     })
         .then(res => res.json())
