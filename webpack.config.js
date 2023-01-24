@@ -7,7 +7,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index_bundle.js',

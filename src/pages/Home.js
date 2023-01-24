@@ -4,9 +4,9 @@ import {Link} from "react-router-dom"
 const Home = () => {
     return (
         <div className='home-container'>
-            <h1>Go to chat</h1>
+            <h1>Welcome to open-blog</h1>
             <Link to='/posts' className='confirm'>
-                    Confirm
+                    Go to blog
             </Link>
         </div>
     )

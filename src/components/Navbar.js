@@ -1,12 +1,17 @@
 import "./Navbar.css"
 import {Link} from "react-router-dom"
+import Search from "./Search"
 
 const Navbar = () => {
     return (
         <div className="navbar">
-            <Link to="/">
-                Start
+            <Link to="/posts">
+                Home
             </Link>
+            <Link to="/posts/new">
+                Add post
+            </Link>
+            <Search/>
         </div>
     )
 }

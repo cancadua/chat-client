@@ -6,9 +6,12 @@ import {getPost, postPost, putPost} from "../api";
 const NewPost = () => {
     const {postId} = useParams()
 
+    const [inputTags, setInputTags] = useState('')
+
     const [post, setPost] = useState({
         title: '',
-        content: ''
+        content: '',
+        tags: [],
     })
 
     const navigate = useNavigate()
@@ -16,16 +19,29 @@ const NewPost = () => {
     const handleChange = event => {
         const {name, value} = event.target
         setPost({...post, [name]: value})
+        console.log(post)
     };
 
+    const handleTagsChange = event => {
+        setInputTags(event.target.value)
+    }
+
     const handleSubmit = () => {
+        console.log(inputTags.split(' '))
+        console.log(post)
         post?._id ? putPost({post_id: post._id},
-                {title: post.title, content: post.content})
-                .then(() => navigate('/posts'))
-            : postPost({title: post?.title, content: post?.content})
-                .then(() => navigate('/posts'))
+                {title: post.title, content: post.content, tags: post.tags})
+                .then(res => {if(!res.ok) throw new Error(res.status);
+                    else navigate('/posts')})
+            : postPost({title: post?.title, content: post?.content, tags: post?.tags})
+                .then(res => {if(!res.ok) throw new Error(res.status);
+                    else navigate('/posts')})
 
     }
+
+    useEffect(() => {
+        setPost({...post, tags: inputTags.split(' ')})
+    }, [inputTags])
 
     useEffect(() => {
         if (postId !== undefined) getPost({postId})
@@ -41,6 +57,12 @@ const NewPost = () => {
                            onChange={handleChange}
                            value={post?.title || ''}
                            placeholder='Title'/>
+
+                    <input name='tags'
+                           onChange={handleTagsChange}
+                           value={inputTags || ''}
+                           placeholder='Tags'/>
+
                     <textarea className='content-textarea'
                            name='content'
                            onChange={handleChange}

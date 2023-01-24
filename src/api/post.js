@@ -14,7 +14,7 @@ const postPost = async (data) => (
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
     })
-        .then(res => res.json())
+        .then(res => res)
 )
 
 const putPost = async ({post_id}, data) => (
@@ -33,6 +33,16 @@ const deletePost = async ({post_id}) => (
         .then(res => res.json())
 )
 
+const getPostsByTag = async (tag) => (
+    await fetch(`http://localhost:8080/api/posts/tags/${tag}`)
+        .then(res => res.json())
+)
+
+const getAllTags = async () => (
+    await fetch(`http://localhost:8080/api/posts/tags`)
+        .then(res => res.json())
+)
+
 
 export {
     getAllPosts,
@@ -40,4 +50,6 @@ export {
     postPost,
     putPost,
     deletePost,
+    getPostsByTag,
+    getAllTags,
 }

@@ -82,3 +82,16 @@
     aspect-ratio: 1 / 1;
 }
 
+.tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tag {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 0;
+}

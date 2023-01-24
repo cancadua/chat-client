@@ -1,10 +1,10 @@
 import './Post.css'
 import {Comment, CommentForm} from "./"
 import {useEffect, useState} from "react"
-import {deletePost, getComments} from "../api"
+import {deletePost, getComments, getPostsByTag} from "../api"
 import {useNavigate} from "react-router-dom"
 
-const Post = ({post, reload}) => {
+const Post = ({post, reload, setPosts}) => {
     const navigation = useNavigate()
     const [comments, setComments] = useState()
     const [reloadComments, setReloadComments] = useState(false)
@@ -25,10 +25,28 @@ const Post = ({post, reload}) => {
         setReloadComments(false)
     }, [reloadComments])
 
+    const setPostsByTag = (event) => {
+        const tag = event.target.value
+        getPostsByTag(tag)
+            .then(data => {
+                setPosts(data)
+            })
+    }
+
     return (
         <div className='post-container'>
             <div className='title'>
                 {post.title}
+            </div>
+
+            <div className='tags'>
+                {post.tags.map(tag => 
+                <div>&nbsp;
+                    <button className='tag' value={tag} onClick={setPostsByTag}>
+                        #{tag}
+                    </button>
+                </div>
+                )}
             </div>
 
             <div className='time'>
