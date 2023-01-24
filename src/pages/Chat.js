@@ -3,12 +3,16 @@ import {Post} from "../components/"
 import './Chat.css'
 import {getAllPosts} from "../api"
 import {Link} from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 
 const Chat = () => {
+    let [searchParams, setSearchParams] = useSearchParams()
+    const search = searchParams.get("search")
     const [posts, setPosts] = useState()
     const [reload, setReload] = useState(false)
 
     useEffect(() => {
+        console.log(search)
         getAllPosts()
             .then(data => setPosts(data))
         setReload(false)
