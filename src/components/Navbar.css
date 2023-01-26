@@ -1,4 +1,5 @@
 .navbar {
+    justify-content: flex-start;
     width: 100%;
     height: 5rem;
     display: flex;
@@ -10,7 +11,19 @@
     border-bottom: 2px solid black;
 }
 
-.navbar a {
+.navbar .search {
+    align-items: center;
+    display: flex;
+    padding: 1rem;
+    margin-left: auto;
+}
+
+.navbar .search input {
+    height: 60%;
+    width: 16rem;
+}
+
+.navbar a, .navbar button {
     font-weight: bold;
     color: #a5a5a5;
     border: none;
@@ -25,7 +38,7 @@
     transition: color 1s;
 }
 
-.navbar a:hover, .navbar a:active {
+.navbar a:hover, .navbar a:active, .navbar button:hover, .navbar button:active {
     text-decoration: none;
     color: white;
 }

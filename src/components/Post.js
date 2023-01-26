@@ -41,28 +41,30 @@ const Post = ({post, reload, setPosts}) => {
 
             <div className='tags'>
                 {post.tags.map(tag => 
-                <div>&nbsp;
+                <div>
+                    &nbsp;
                     <button className='tag' value={tag} onClick={setPostsByTag}>
-                        #{tag}
+                        {tag ? '#' + tag : ''}
                     </button>
+                    
                 </div>
                 )}
             </div>
 
             <div className='time'>
-                Updated at {post.updated_on.replace('T', ' ').slice(0, -5)}
+                {post.updated_on.replace('T', ' ').slice(0, -5)}
             </div>
 
             <div className='content'>
                 {post.content}
             </div>
             <div className='comments'>
+                <CommentForm post_id={post._id} reloadComments={() => setReloadComments(true)}/>
                 {
                     comments?.map(comment =>
                         <Comment key={comment._id} comment={comment} reloadComments={() => setReloadComments(true)}/>
                     )
                 }
-                <CommentForm post_id={post._id} reloadComments={() => setReloadComments(true)}/>
             </div>
             <div className='manage-post'>
                 <a className='edit-post' onClick={handleEdit}>

@@ -38,9 +38,9 @@ const CommentForm = ({post_id, reloadComments}) => {
                    name='content'
                    onChange={handleChange}
                    placeholder='Content'/>
-            <a className='send-comment' type="reset" onClick={handleSendComment}>
+            <button className='send-comment' type="reset" onClick={handleSendComment}>
                 Create Comment
-            </a>
+            </button>
         </form>
     )
 }

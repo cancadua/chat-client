@@ -17,7 +17,7 @@ const Comment = ({comment, reloadComments}) => {
                 Delete
             </a>
             <div className='comment-time'>
-                Updated at {comment.updated_on.replace('T', ' ').slice(0, -5)}
+                {comment.updated_on.replace('T', ' ').slice(0, -5)}
             </div>
             <div className='comment-content'>
                 {comment.content}

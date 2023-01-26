@@ -19,7 +19,6 @@ const NewPost = () => {
     const handleChange = event => {
         const {name, value} = event.target
         setPost({...post, [name]: value})
-        console.log(post)
     };
 
     const handleTagsChange = event => {
@@ -27,10 +26,7 @@ const NewPost = () => {
     }
 
     const handleSubmit = () => {
-        console.log(inputTags.split(' '))
-        console.log(post)
-        post?._id ? putPost({post_id: post._id},
-                {title: post.title, content: post.content, tags: post.tags})
+        post?._id ? putPost({post_id: post._id}, {title: post.title, content: post.content, tags: post.tags})
                 .then(res => {if(!res.ok) throw new Error(res.status);
                     else navigate('/posts')})
             : postPost({title: post?.title, content: post?.content, tags: post?.tags})
@@ -45,11 +41,13 @@ const NewPost = () => {
 
     useEffect(() => {
         if (postId !== undefined) getPost({postId})
-            .then(data => setPost(data))
+            .then(data => { console.log(data)
+                return setPost(data)
+            })
     }, [])
 
     return (
-        <div className='chat-container'>
+        <div className='new-post-container'>
             <div className='form-post-container'>
                 <div className='post-form'>
                     <input className='title'
@@ -60,7 +58,7 @@ const NewPost = () => {
 
                     <input name='tags'
                            onChange={handleTagsChange}
-                           value={inputTags || ''}
+                           value={inputTags || post.tags.join(" ") || ''}
                            placeholder='Tags'/>
 
                     <textarea className='content-textarea'
@@ -69,7 +67,7 @@ const NewPost = () => {
                            value={post?.content || ''}
                            placeholder='Content'/>
                     <div className='manage-post'>
-                        <button className='send-post' onClick={handleSubmit}>Create Post</button>
+                        <button className='send-post' onClick={handleSubmit}>{post?._id ? "Edit post" : "Create post"}</button>
                     </div>
                 </div>
             </div>

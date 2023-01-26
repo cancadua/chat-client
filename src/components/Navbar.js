@@ -5,7 +5,7 @@ import Search from "./Search"
 const Navbar = () => {
     return (
         <div className="navbar">
-            <Link to="/posts">
+            <Link reloadDocument to="/posts">
                 Home
             </Link>
             <Link to="/posts/new">

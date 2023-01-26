@@ -1,19 +1,41 @@
 .post-container {
     color: white;
-    background: #252437;
-    overflow: hidden;
+    background-image: radial-gradient( circle farthest-corner at 16.5% 28.1%,  rgba(15,27,49,1) 0%, rgba(0,112,218,1) 90% );
     border-radius: 2rem;
     width: 80%;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     border: black 2px solid;
 }
 
 .post-container .title {
+    word-break: break-word;
     font-weight: bold;
     padding: 1rem;
     grid-column: 1;
     grid-row: 1;
+}
+
+.post-container .tags {
+    display: flex;
+    padding: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.tag {
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    color: #4294d3;
+    font-weight: bold;
+}
+
+.tag:hover {
+    color: #86b6f5;
 }
 
 .post-container .content {
@@ -37,7 +59,7 @@
     padding: 1rem;
     gap: 1rem;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     grid-column: 1 / 5;
@@ -50,8 +72,6 @@
     aspect-ratio: 2 / 1;
     grid-row: 1 / 5;
     grid-column: 5;
-    border: none;
-    overflow: hidden;
 }
 
 .post-container .manage-post .edit-post {
@@ -62,11 +82,15 @@
     font-weight: bold;
     color: white;
     border: solid 2px #114505;
-    background: #006505;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,160,71,1) 0%, rgba(0,104,105,1) 50% );
     width: 50%;
     cursor: pointer;
     aspect-ratio: 1 / 1;
     border-radius: 0 0 0 2rem;
+}
+
+.post-container .manage-post .edit-post:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
 }
 
 .post-container .manage-post .delete-post {
@@ -77,21 +101,11 @@
     color: white;
     cursor: pointer;
     border: solid 2px #900000;
-    background: #a00000;
-    width: 50%;
+    background-image: linear-gradient( 109.1deg,  rgba(265,57,75,1) 7.1%, rgba(211,13,0,1) 46.4% );
+    border-radius: 0 2rem 0 0;
     aspect-ratio: 1 / 1;
 }
 
-.tags {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.tag {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    padding: 0;
+.home-post-container .post-container .manage-post .delete-post:hover {
+    background-image: linear-gradient( 109.1deg,  rgba(281,73,91,1) 7.1%, rgba(225,27,14,1) 86.4% );
 }

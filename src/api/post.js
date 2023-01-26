@@ -23,7 +23,7 @@ const putPost = async ({post_id}, data) => (
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
     })
-        .then(res => res.json())
+        .then(res => res)
 )
 
 const deletePost = async ({post_id}) => (
@@ -43,6 +43,11 @@ const getAllTags = async () => (
         .then(res => res.json())
 )
 
+const getPostsBySearchedText = async (searchedText) => (
+    await fetch (`http://localhost:8080/api/posts/search/${searchedText}`)
+        .then(res => res.json())
+)
+
 
 export {
     getAllPosts,
@@ -52,4 +57,5 @@ export {
     deletePost,
     getPostsByTag,
     getAllTags,
+    getPostsBySearchedText
 }
