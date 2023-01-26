@@ -26,9 +26,9 @@ const CommentForm = ({post_id, reloadComments}) => {
 
     return (
         <form className='comment-form-container'>
-            <h3>
+            <div className="text">
                 Add your comment!
-            </h3>
+            </div>
             <input className='comment-input'
                    name='title'
                    onChange={handleChange}

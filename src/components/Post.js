@@ -40,7 +40,7 @@ const Post = ({post, reload, setPosts}) => {
             </div>
 
             <div className='tags'>
-                {post.tags.map(tag => 
+                {post.tags?.map(tag => 
                 <div>
                     &nbsp;
                     <button className='tag' value={tag} onClick={setPostsByTag}>
