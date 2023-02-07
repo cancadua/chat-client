@@ -7,4 +7,4 @@ Klient aplikacji blog dla stosu technologicznego MERN (MongoDB, Express, React, 
 ### Wymagania:
   - Node.js
 ### Uruchomienie:
-  W folderze należy uruchomić wiersz poleceń i zatwierdzić polecenie ```npm start```, następnie aplikacja dostępna będzie pod adresem ```localhost:3001```
+  W folderze należy uruchomić wiersz poleceń i zatwierdzić polecenie ```npm install```, następnie polecenie ```npm start```. Aplikacja dostępna będzie pod adresem ```localhost:3001```.
